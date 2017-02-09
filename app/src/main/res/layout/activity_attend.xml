@@ -10,6 +10,17 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.jerem.teachersassistant.AttendActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -107,11 +118,10 @@
                 android:layout_marginLeft="40dp"
                 android:layout_marginStart="05dp"
                 android:id="@+id/textView16"
-                android:layout_weight="0.20"
                 android:textStyle="normal|bold" />
 
             <EditText
-                android:layout_width="59dp"
+                android:layout_width="45dp"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:layout_marginLeft="1dp"
@@ -119,6 +129,7 @@
                 android:ems="10"
                 android:id="@+id/editText5"
                 android:textStyle="normal|bold" />
+
             <TextView
                 android:text="Present:"
                 android:layout_width="wrap_content"
@@ -129,20 +140,20 @@
                 android:layout_marginLeft="40dp"
                 android:layout_marginStart="05dp"
                 android:id="@+id/textView17"
-                android:layout_weight="0.20"
                 android:textStyle="normal|bold" />
             <EditText
-                android:layout_width="59dp"
+                android:layout_width="55dp"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:layout_marginLeft="1dp"
 
                 android:ems="10"
                 android:id="@+id/editText6"
-                android:textStyle="normal|bold" />
+                android:textStyle="normal|bold"
+                android:layout_weight="0.94" />
             <TextView
                 android:text="Absent:"
-                android:layout_width="wrap_content"
+                android:layout_width="53dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/linearLayout"
                 android:layout_alignParentLeft="true"
@@ -150,10 +161,9 @@
                 android:layout_marginLeft="40dp"
                 android:layout_marginStart="05dp"
                 android:id="@+id/textView18"
-                android:layout_weight="0.20"
                 android:textStyle="normal|bold" />
             <EditText
-                android:layout_width="59dp"
+                android:layout_width="55dp"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:layout_marginLeft="1dp"
@@ -182,7 +192,8 @@
         android:layout_below="@+id/linearLayout2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="15dp">
+        android:layout_marginTop="15dp"
+        android:id="@+id/linearLayout3">
 
 
         <android.support.v7.widget.RecyclerView
@@ -192,4 +203,17 @@
             android:scrollbars="vertical" />
     </LinearLayout>
 
+            <Button
+                android:text="Update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="130dp"
+                android:layout_below="@+id/linearLayout3"
+                android:onClick="stu"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="54dp"
+                android:id="@+id/button3" />
+
+    </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

@@ -32,7 +32,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".LogActivity" />
+        <activity android:name=".LogActivity"/>
         <activity
             android:name=".ProfileActivity"
             android:label="@string/title_activity_profile"
@@ -41,7 +41,11 @@
             android:name=".AttendanceActivity"
             android:label="@string/title_activity_attendance"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".AttendActivity"></activity>
+        <activity android:name=".AttendActivity" />
+        <activity
+            android:name=".InternalActivity"
+            android:label="@string/title_activity_internal"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

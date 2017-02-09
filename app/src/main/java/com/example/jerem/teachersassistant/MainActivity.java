@@ -98,9 +98,11 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_slideshow) {
 
-        } else if (id == R.id.nav_sem) {
+        } else if(id == R.id.nav_internal){
+            Intent act = new Intent(MainActivity.this,InternalActivity.class);
+            startActivity(act);
 
-        } else if(id==R.id.nav_activity){
+        } else if (id==R.id.nav_activity){
             Intent act = new Intent(MainActivity.this,LogActivity.class);
             startActivity(act);
         }
