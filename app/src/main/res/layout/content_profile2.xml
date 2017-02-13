@@ -18,30 +18,21 @@
     android:layout_height="40dp"
     android:layout_width="wrap_content"
     android:text="Employee code:"
-    android:textStyle="normal|bold" />
-            <TextView
+    android:textStyle="normal" />
+            <EditText
+                android:id="@+id/e1"
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"/>
+                android:layout_width="250dp" />
+
         </TableRow>
-<TableRow>
-    <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="User ID:"/>
-sss
-    <EditText
-        android:layout_height="wrap_content"
-        android:layout_width="250dp" />
 
-
-
-</TableRow>
         <TableRow>
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:text="Password:"/>
             <EditText
+                android:id="@+id/e2"
                 android:layout_height="wrap_content"
                 android:layout_width="250dp" />
 
@@ -59,6 +50,7 @@ sss
                 android:layout_width="wrap_content"
                 android:text="First Name:"/>
             <EditText
+                android:id="@+id/e3"
                 android:layout_height="wrap_content"
                 android:layout_width="250dp" />
 
@@ -69,6 +61,7 @@ sss
                 android:layout_width="wrap_content"
                 android:text="Middle Name:"/>
             <EditText
+                android:id="@+id/e4"
                 android:layout_height="wrap_content"
                 android:layout_width="250dp" />
 
@@ -82,9 +75,10 @@ s
                 android:id="@+id/textView2" />
 
             <EditText
+
                 android:layout_height="wrap_content"
                 android:layout_width="250dp"
-                android:id="@+id/editText2" />
+                android:id="@+id/e5" />
 
         </TableRow>
         <TableRow>
@@ -93,6 +87,7 @@ s
                 android:layout_width="wrap_content"
                 android:text="Father Name:"/>
             <EditText
+                android:id="@+id/e6"
                 android:layout_height="wrap_content"
                 android:layout_width="250dp" />
 
@@ -103,6 +98,7 @@ s
                 android:layout_width="wrap_content"
                 android:text="Mother Name:"/>
             <EditText
+                android:id="@+id/e7"
                 android:layout_height="wrap_content"
                 android:layout_width="250dp" />
 
@@ -113,6 +109,7 @@ s
                 android:layout_width="wrap_content"
                 android:text="DOB:"/>
             <EditText
+                android:id="@+id/e8"
                 android:layout_height="wrap_content"
                 android:layout_width="250dp" />
 
@@ -123,6 +120,7 @@ s
                 android:layout_width="wrap_content"
                 android:text="Gender:"/>
             <EditText
+                android:id="@+id/e9"
                 android:layout_height="wrap_content"
                 android:layout_width="250dp" />
 
@@ -133,6 +131,7 @@ s
                 android:layout_width="wrap_content"
                 android:text="Religion:"/>
             <EditText
+                android:id="@+id/e10"
                 android:layout_height="wrap_content"
                 android:layout_width="250dp" />
 
@@ -143,6 +142,7 @@ s
                 android:layout_width="wrap_content"
                 android:text="Community:"/>
             <EditText
+                android:id="@+id/e11"
                 android:layout_height="wrap_content"
                 android:layout_width="250dp" />
 
@@ -153,6 +153,7 @@ s
                 android:layout_width="wrap_content"
                 android:text="Nationality:"/>
             <EditText
+                android:id="@+id/e12"
                 android:layout_height="wrap_content"
                 android:layout_width="250dp" />
 
@@ -163,6 +164,7 @@ s
                 android:layout_width="wrap_content"
                 android:text="Caste:"/>
             <EditText
+                android:id="@+id/e13"
                 android:layout_height="wrap_content"
                 android:layout_width="250dp" />
 
@@ -173,6 +175,7 @@ s
                 android:layout_width="wrap_content"
                 android:text="Martial Status:"/>
             <EditText
+                android:id="@+id/e14"
                 android:layout_height="wrap_content"
                 android:layout_width="250dp" />
 
@@ -183,6 +186,7 @@ s
             android:layout_width="wrap_content"
             android:text="Blood Group:"/>
         <EditText
+            android:id="@+id/e15"
             android:layout_height="wrap_content"
             android:layout_width="250dp" />
 
@@ -193,6 +197,7 @@ s
                 android:layout_width="wrap_content"
                 android:text="Aadhaar No:"/>
             <EditText
+                android:id="@+id/e16"
                 android:layout_height="wrap_content"
                 android:layout_width="250dp" />
 
@@ -204,6 +209,7 @@ s
             android:layout_width="wrap_content"
             android:text="Pan card No:"/>
         <EditText
+            android:id="@+id/e17"
             android:layout_height="wrap_content"
             android:layout_width="250dp" />
 
@@ -214,6 +220,7 @@ s
                 android:layout_width="wrap_content"
                 android:text="Phone Number:"/>
             <EditText
+                android:id="@+id/e18"
                 android:layout_height="wrap_content"
                 android:layout_width="250dp" />
 
@@ -224,6 +231,7 @@ s
                 android:layout_width="wrap_content"
                 android:text="Personal Email:"/>
             <EditText
+                android:id="@+id/e19"
                 android:layout_height="wrap_content"
                 android:layout_width="250dp" />
 
@@ -240,6 +248,7 @@ s
                 android:layout_width="wrap_content"
                 android:text="Current Address:"/>
             <EditText
+                android:id="@+id/e20"
                 android:layout_height="wrap_content"
                 android:layout_width="250dp" />
 
@@ -250,6 +259,7 @@ s
                 android:layout_width="wrap_content"
                 android:text="Country:"/>
             <EditText
+                android:id="@+id/e21"
                 android:layout_height="wrap_content"
                 android:layout_width="250dp" />
 
@@ -260,6 +270,7 @@ s
                 android:layout_width="wrap_content"
                 android:text="State:"/>
             <EditText
+                android:id="@+id/e22"
                 android:layout_height="wrap_content"
                 android:layout_width="250dp" />
 
@@ -270,6 +281,7 @@ s
             android:layout_width="wrap_content"
             android:text="District:"/>
         <EditText
+            android:id="@+id/e23"
             android:layout_height="wrap_content"
             android:layout_width="250dp" />
 
@@ -280,6 +292,7 @@ s
                 android:layout_width="wrap_content"
                 android:text="PinCode:"/>
             <EditText
+                android:id="@+id/e24"
                 android:layout_height="wrap_content"
                 android:layout_width="250dp" />
 
