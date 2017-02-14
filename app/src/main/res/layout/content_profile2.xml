@@ -301,7 +301,7 @@ s
 <Button
     android:layout_height="wrap_content"
     android:layout_width="wrap_content"
-    android:onClick="pro"
+    android:onClick="updateData"
     android:text="Update"/>
 
 

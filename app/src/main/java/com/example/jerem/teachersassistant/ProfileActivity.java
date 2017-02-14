@@ -80,7 +80,7 @@ public class ProfileActivity extends AppCompatActivity {
         response = new BasicResponseHandler();
     }
 
-    public void Reload(View v) {
+    public void updateData(View v) {
 
 
         Employee_code = e1.getText().toString();
@@ -141,12 +141,13 @@ public class ProfileActivity extends AppCompatActivity {
 
 
 
-            httppost = new HttpPost("http://127.0.0.1/profile.php");
+            httppost = new HttpPost("http://10.0.2.2/profile.php");
             try {
                 httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
                 returnedstring = httpclient.execute(httppost, response);
                 Intent i = new Intent(ProfileActivity.this, MainActivity.class);
                 startActivity(i);
+                System.out.println("res"+returnedstring);
                 Toast.makeText(getApplicationContext(), returnedstring, Toast.LENGTH_LONG).show();
                 if(returnedstring.equals("true"))
                 {
@@ -158,6 +159,7 @@ public class ProfileActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), t1 , Toast.LENGTH_LONG).show();
                 }
             } catch (Exception e) {
+                e.printStackTrace();
                 Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
             }
         }
