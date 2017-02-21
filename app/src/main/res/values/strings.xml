@@ -111,4 +111,5 @@
     </string>
     <string name="title_activity_attendance">AttendanceActivity</string>
     <string name="title_activity_internal">InternalActivity</string>
+    <string name="title_activity_adminlogin">Adminlogin</string>
 </resources>

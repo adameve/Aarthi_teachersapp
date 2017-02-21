@@ -48,6 +48,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+
+
                 <EditText
                     android:id="@+id/password"
                     android:layout_width="match_parent"
@@ -69,7 +71,27 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Log In"
+                android:onClick="Login"
                 android:textStyle="bold" />
+
+
+            <TextView
+                android:text="*CLICK HERE TO CREATE USER ID AND PASSWORD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView29"
+                android:textStyle="normal|bold|italic" />
+
+            <Button
+                android:id="@+id/email_sign_in_button1"
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="REGISTER"
+                android:onClick="register"
+                android:textStyle="bold" />
+
 
         </LinearLayout>
     </ScrollView>

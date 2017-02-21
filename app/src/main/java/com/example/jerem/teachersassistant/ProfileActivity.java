@@ -30,7 +30,7 @@ import static java.net.Proxy.Type.HTTP;
 public class ProfileActivity extends AppCompatActivity {
 
 
-    EditText e1, e2, e3, e4, e5, e6, e7, e8, e9, e10,e11,e12,e13,e14,e15,e16,e17,e18,e19,e20,e21,e22,e23,e24;
+    EditText  e3, e4, e5, e6, e7, e8, e9, e10,e11,e12,e13,e14,e15,e16,e17,e18,e19,e20,e21,e22,e23,e24;
 
     HttpClient httpclient;
     HttpPost httppost;
@@ -50,8 +50,8 @@ public class ProfileActivity extends AppCompatActivity {
                     .permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
-        e1 = (EditText) findViewById(R.id.e1);
-        e2 = (EditText) findViewById(R.id.e2);
+
+
         e3 = (EditText) findViewById(R.id.e3);
         e4 = (EditText) findViewById(R.id.e4);
         e5 = (EditText) findViewById(R.id.e5);
@@ -83,8 +83,7 @@ public class ProfileActivity extends AppCompatActivity {
     public void updateData(View v) {
 
 
-        Employee_code = e1.getText().toString();
-        Password = e2.getText().toString();
+
         First_Name = e3.getText().toString();
         Middle_Name = e4.getText().toString();
         Surname = e5.getText().toString();
@@ -109,18 +108,16 @@ public class ProfileActivity extends AppCompatActivity {
         Pin_code = e24.getText().toString();
 
 
-        if (Employee_code.equals("") ||  Password.equals("") || First_Name.equals("") || Personal_Email.equals("") || Phone_Number.equals("")) {
+        if ( First_Name.equals("") || Personal_Email.equals("") || Phone_Number.equals("")) {
             Toast.makeText(getApplicationContext(), "Please enter all the details", Toast.LENGTH_LONG).show();
         } else {
-            nameValuePairs.add(new BasicNameValuePair("Employee_code", Employee_code));
-            nameValuePairs.add(new BasicNameValuePair("Password", Password));
+
             nameValuePairs.add(new BasicNameValuePair("First_Name", First_Name));
             nameValuePairs.add(new BasicNameValuePair("Middle_Name", Middle_Name));
             nameValuePairs.add(new BasicNameValuePair("Surname", Surname));
             nameValuePairs.add(new BasicNameValuePair("Father_Name", Father_Name));
             nameValuePairs.add(new BasicNameValuePair("Mother_Name", Mother_Name));
-            nameValuePairs.add(new BasicNameValuePair("DOB", DOB));
-            nameValuePairs.add(new BasicNameValuePair("Gender", Gender));
+            nameValuePairs.add(new BasicNameValuePair("Gen            nameValuePairs.add(new BasicNameValuePair(\"DOB\", DOB));\nder", Gender));
             nameValuePairs.add(new BasicNameValuePair("Religion", Religion));
             nameValuePairs.add(new BasicNameValuePair("Community", Community));
             nameValuePairs.add(new BasicNameValuePair("Nationality", Nationality));
@@ -137,27 +134,24 @@ public class ProfileActivity extends AppCompatActivity {
             nameValuePairs.add(new BasicNameValuePair("District", District));
             nameValuePairs.add(new BasicNameValuePair("Pin_code", Pin_code));
 
-
-
-
-
-            httppost = new HttpPost("http://10.0.2.2/profile.php");
+           httppost = new HttpPost("http://10.0.2.2/profile.php");
             try {
                 httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
                 returnedstring = httpclient.execute(httppost, response);
-                Intent i = new Intent(ProfileActivity.this, MainActivity.class);
+                Intent i = new Intent(ProfileActivity.this, LoginActivity.class);
                 startActivity(i);
                 System.out.println("res"+returnedstring);
                 Toast.makeText(getApplicationContext(), returnedstring, Toast.LENGTH_LONG).show();
                 if(returnedstring.equals("true"))
                 {
-                    Intent s = new Intent(ProfileActivity.this, MainActivity.class);
+                    Intent s = new Intent(ProfileActivity.this, LoginActivity.class);
                     startActivity(s);
                 }
                 else
                 {
                     Toast.makeText(getApplicationContext(), t1 , Toast.LENGTH_LONG).show();
                 }
+
             } catch (Exception e) {
                 e.printStackTrace();
                 Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
