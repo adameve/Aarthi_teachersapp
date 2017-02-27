@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -31,13 +32,16 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,37 +53,73 @@ import static android.Manifest.permission.READ_CONTACTS;
  */
 public class LoginActivity extends AppCompatActivity {
     Intent i;
+    EditText e3, e4;
 
-    /**
-     * Id to identity READ_CONTACTS permission request.
-     */
-    private static final int REQUEST_READ_CONTACTS = 0;
-
-    /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
-     */
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world"
-    };
-    /**
-     * Keep track of the login task to ensure we can cancel it if requested.
-     */
-    // UI references.
-    private AutoCompleteTextView mEmailView;
-    private EditText mPasswordView;
-    private View mProgressView;
-    private View mLoginFormView;
+    HttpClient httpclient;
+    HttpPost httppost;
+    ResponseHandler<String> response;
+    List<NameValuePair> nameValuePairs;
+    String userid, password;
+    String returnedstring;
+    //  String studentStatus ="0";
+    CharSequence t1 = "invalid";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        // Set up the login form.
-        mEmailView = (AutoCompleteTextView) findViewById(R.id.login);
-        mPasswordView = (EditText) findViewById(R.id.password);
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                    .permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
+
+        e3 = (EditText) findViewById(R.id.login);
+        e4 = (EditText) findViewById(R.id.password);
+
+
+        nameValuePairs = new ArrayList<NameValuePair>();
+        httpclient = new DefaultHttpClient();
+        response = new BasicResponseHandler();
+    }
+
+    public void Login(View v) {
+
+
+        userid = e3.getText().toString();
+        password = e4.getText().toString();
+
+
+        if (userid.equals("") || password.equals("")) {
+            Toast.makeText(getApplicationContext(), "Please enter loginid and password", Toast.LENGTH_LONG).show();
+        } else {
+
+            nameValuePairs.add(new BasicNameValuePair("userid", userid));
+            nameValuePairs.add(new BasicNameValuePair("Password", password));
+
+
+            httppost = new HttpPost("http://10.0.2.2/check.php");
+            try {
+                httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+                returnedstring = httpclient.execute(httppost, response);
+                System.out.println("res" + returnedstring);
+                if (returnedstring.equals("true")) {
+                    Intent s = new Intent(com.example.jerem.teachersassistant.LoginActivity.this, MainActivity.class);
+                    startActivity(s);
+                } else {
+                    Snackbar.make(v, getString(R.string.validuser),Snackbar.LENGTH_LONG).show();
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+
+        /*Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
@@ -91,13 +131,10 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(assistant);
                 finish();
             }
-        });
+        });*/
 
 
 
 
-    }
 
-
-}
 

@@ -117,7 +117,8 @@ public class ProfileActivity extends AppCompatActivity {
             nameValuePairs.add(new BasicNameValuePair("Surname", Surname));
             nameValuePairs.add(new BasicNameValuePair("Father_Name", Father_Name));
             nameValuePairs.add(new BasicNameValuePair("Mother_Name", Mother_Name));
-            nameValuePairs.add(new BasicNameValuePair("Gen            nameValuePairs.add(new BasicNameValuePair(\"DOB\", DOB));\nder", Gender));
+            nameValuePairs.add(new BasicNameValuePair("DOB", DOB));
+            nameValuePairs.add(new BasicNameValuePair("Gender", Gender));
             nameValuePairs.add(new BasicNameValuePair("Religion", Religion));
             nameValuePairs.add(new BasicNameValuePair("Community", Community));
             nameValuePairs.add(new BasicNameValuePair("Nationality", Nationality));
