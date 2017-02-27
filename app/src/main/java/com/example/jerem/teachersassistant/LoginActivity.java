@@ -32,6 +32,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.BasicResponseHandler;
+import org.apache.http.impl.client.DefaultHttpClient;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +49,7 @@ import static android.Manifest.permission.READ_CONTACTS;
  */
 public class LoginActivity extends AppCompatActivity {
     Intent i;
+
     /**
      * Id to identity READ_CONTACTS permission request.
      */
@@ -85,14 +93,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        Button mEmailSignInButton1 = (Button) findViewById(R.id.email_sign_in_button1);
-        mEmailSignInButton1.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent register = new Intent(LoginActivity.this, Adminlogin.class);
-                startActivity(register);
-            }
-        });
+
 
 
     }

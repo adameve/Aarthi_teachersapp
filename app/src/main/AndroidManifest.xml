@@ -47,10 +47,6 @@
             android:name=".InternalActivity"
             android:label="@string/title_activity_internal"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Adminlogin"
-            android:label="@string/title_activity_adminlogin"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
