@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent edit = new Intent(MainActivity.this,ProfileActivity.class);
+                startActivity(edit);
             }
         });
 
@@ -89,10 +89,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            Intent act = new Intent(MainActivity.this,ProfileActivity.class);
-            startActivity(act);
-        } else if (id == R.id.nav_gallery) {
+         if (id == R.id.nav_gallery) {
             Intent act = new Intent(MainActivity.this,AttendanceActivity.class);
             startActivity(act);
 

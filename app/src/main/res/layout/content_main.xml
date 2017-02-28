@@ -13,4 +13,346 @@
     tools:context="com.example.jerem.teachersassistant.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="PERSONAL DETAILS:" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="First Name:" />
+
+                    <TextView
+                        android:id="@+id/e3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="Middle Name:" />
+
+                    <TextView
+                        android:id="@+id/e4"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp" />
+
+                </TableRow>
+
+                <TableRow>
+                    s
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="Surname:" />
+
+                    <TextView
+
+                        android:id="@+id/e5"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="Father Name:" />
+
+                    <TextView
+                        android:id="@+id/e6"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="Mother Name:" />
+
+                    <TextView
+                        android:id="@+id/e7"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="DOB:" />
+
+                    <TextView
+                        android:id="@+id/e8"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="Gender:" />
+
+                    <TextView
+                        android:id="@+id/e9"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="Religion:" />
+
+                    <TextView
+                        android:id="@+id/e10"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="Community:" />
+
+                    <TextView
+                        android:id="@+id/e11"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="Nationality:" />
+
+                    <TextView
+                        android:id="@+id/e12"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="Caste:" />
+
+                    <TextView
+                        android:id="@+id/e13"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="Martial Status:" />
+
+                    <TextView
+                        android:id="@+id/e14"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="Blood Group:" />
+
+                    <TextView
+                        android:id="@+id/e15"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="Aadhaar No:" />
+
+                    <TextView
+                        android:id="@+id/e16"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="Pan card No:" />
+
+                    <TextView
+                        android:id="@+id/e17"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="Phone Number:" />
+
+                    <TextView
+                        android:id="@+id/e18"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="Personal Email:" />
+
+                    <TextView
+                        android:id="@+id/e19"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp" />
+
+                </TableRow>
+
+                <TextView
+                    android:layout_width="250dp"
+                    android:layout_height="40dp"
+                    android:text="COMMUNICATION DETAILS:" />
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="Current Address:" />
+
+                    <TextView
+                        android:id="@+id/e20"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="Country:" />
+
+                    <TextView
+                        android:id="@+id/e21"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="State:" />
+
+                    <TextView
+                        android:id="@+id/e22"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="District:" />
+
+                    <TextView
+                        android:id="@+id/e23"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="PinCode:" />
+
+                    <TextView
+                        android:id="@+id/e24"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp" />
+
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+
+
+
+    </ScrollView>
 </RelativeLayout>
