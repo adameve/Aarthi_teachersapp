@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
@@ -103,8 +104,15 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
                 returnedstring = httpclient.execute(httppost, response);
+                String[] split = returnedstring.split(",");
+                String s1 = split[0];
+                String s2 = split[1];
+
                 System.out.println("res" + returnedstring);
-                if (returnedstring.equals("true")) {
+                if (s1.equals("true")) {
+                    SharedPreferences.Editor editor = getSharedPreferences("userid", MODE_PRIVATE).edit();
+                    editor.putString("userid", s2);
+                    editor.commit();
                     Intent s = new Intent(com.example.jerem.teachersassistant.LoginActivity.this, MainActivity.class);
                     startActivity(s);
                 } else {
