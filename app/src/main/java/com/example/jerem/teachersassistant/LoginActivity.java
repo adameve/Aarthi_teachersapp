@@ -107,12 +107,12 @@ public class LoginActivity extends AppCompatActivity {
                 String[] split = returnedstring.split(",");
                 String s1 = split[0];
                 String s2 = split[1];
-
                 System.out.println("res" + returnedstring);
                 if (s1.equals("true")) {
-                    SharedPreferences.Editor editor = getSharedPreferences("userid", MODE_PRIVATE).edit();
+                    SharedPreferences.Editor editor = getSharedPreferences("userid",MODE_PRIVATE).edit();
                     editor.putString("userid", s2);
                     editor.commit();
+
                     Intent s = new Intent(com.example.jerem.teachersassistant.LoginActivity.this, MainActivity.class);
                     startActivity(s);
                 } else {

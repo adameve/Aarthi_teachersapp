@@ -17,8 +17,6 @@ ArrayAdapter<String> a;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log);
         // Spinner element
-a=new ArrayAdapter<String>(LogActivity.this,android.R.layout.simple_spinner_item,categories);
-        a.setDropDownViewResource(android.R.layout.simple_spinner_item,categories);
 
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
 
@@ -29,6 +27,7 @@ a=new ArrayAdapter<String>(LogActivity.this,android.R.layout.simple_spinner_item
                 String item=parent.getItemAtPosition(position).toString();
 if(position==1)
 {
+
 
 }
             }
@@ -49,6 +48,7 @@ if(position==1)
         categories.add("III CSE B");
         categories.add("IV CSE A");
         categories.add("IV CSE B");
+        a=new ArrayAdapter<String>(LogActivity.this,android.R.layout.simple_spinner_item,categories);
 
         // Creating adapter for spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);

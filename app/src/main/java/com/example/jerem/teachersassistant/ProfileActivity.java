@@ -21,6 +21,8 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +42,7 @@ public class ProfileActivity extends AppCompatActivity {
     String returnedstring;
   //  String studentStatus ="0";
     CharSequence t1="invalid";
+    String userid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +83,7 @@ public class ProfileActivity extends AppCompatActivity {
         response = new BasicResponseHandler();
     }
 
+
     public void updateData(View v) {
 
 
@@ -106,6 +110,8 @@ public class ProfileActivity extends AppCompatActivity {
         State= e22.getText().toString();
         District= e23.getText().toString();
         Pin_code = e24.getText().toString();
+
+
 
 
         if ( First_Name.equals("") || Personal_Email.equals("") || Phone_Number.equals("")) {
@@ -139,13 +145,13 @@ public class ProfileActivity extends AppCompatActivity {
             try {
                 httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
                 returnedstring = httpclient.execute(httppost, response);
-                Intent i = new Intent(ProfileActivity.this, LoginActivity.class);
+                Intent i = new Intent(ProfileActivity.this, MainActivity.class);
                 startActivity(i);
                 System.out.println("res"+returnedstring);
                 Toast.makeText(getApplicationContext(), returnedstring, Toast.LENGTH_LONG).show();
                 if(returnedstring.equals("true"))
                 {
-                    Intent s = new Intent(ProfileActivity.this, LoginActivity.class);
+                    Intent s = new Intent(ProfileActivity.this, MainActivity.class);
                     startActivity(s);
                 }
                 else

@@ -2,6 +2,7 @@ package com.example.jerem.teachersassistant;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
@@ -27,6 +28,9 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.protocol.HTTP;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,12 +53,11 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_main);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         SharedPreferences prefs = getSharedPreferences("userid", MODE_PRIVATE);
-        String userid = prefs.getString("userid", null); //0 is the default value.
+        userid = prefs.getString("userid", null); //0 is the default value.
 
         System.out.print(userid);
 
@@ -71,10 +74,8 @@ public class MainActivity extends AppCompatActivity
                     .permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
-         prefs = getSharedPreferences("userid", MODE_PRIVATE);
 
 
-             userid = prefs.getString("userid", null); //0 is the default value.
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -111,9 +112,11 @@ public class MainActivity extends AppCompatActivity
         nameValuePairs = new ArrayList<NameValuePair>();
         httpclient = new DefaultHttpClient();
         response = new BasicResponseHandler();
+        updateData();
     }
 
-    public void updateData(View v) {
+
+    public void updateData() {
 
 
 
@@ -141,33 +144,79 @@ public class MainActivity extends AppCompatActivity
         Pin_code = e24.getText().toString();
 
 
-        if ( First_Name.equals("") || Personal_Email.equals("") || Phone_Number.equals("")) {
-            Toast.makeText(getApplicationContext(), "Please enter all the details", Toast.LENGTH_LONG).show();
-        } else {
-
-            nameValuePairs.add(new BasicNameValuePair("userid", userid));
 
 
-            httppost = new HttpPost("http://10.0.2.2/display.php");
+
+
+
             try {
+                nameValuePairs.add(new BasicNameValuePair("userid", userid));
+                httppost = new HttpPost("http://10.0.2.2/display.php");
                 httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
                 returnedstring = httpclient.execute(httppost, response);
-                System.out.println("res"+returnedstring);
-                Toast.makeText(getApplicationContext(), returnedstring, Toast.LENGTH_LONG).show();
-                if(returnedstring.equals("true"))
-                {
+                System.out.println("res:-------"+returnedstring);
 
-                }
-                else
-                {
-                    Toast.makeText(getApplicationContext(), t1 , Toast.LENGTH_LONG).show();
-                }
+
+                //Toast.makeText(getApplicationContext(), returnedstring, Toast.LENGTH_LONG).show();
+
+                    JSONArray jsonArr = new JSONArray(returnedstring);
+
+                    for(int i=0;i<jsonArr.length();i++)
+                    {
+                        JSONObject jsonObj = jsonArr.getJSONObject(i);
+                        String firstname = jsonObj.getString("First_Name");
+                        String middlename = jsonObj.getString("Middle_Name");
+                        String surname = jsonObj.getString("Surname");
+                        String fathername = jsonObj.getString("Father_Name");
+                        String mothername = jsonObj.getString("Mother_Name");
+                        String dob = jsonObj.getString("DOB");
+                        String gender = jsonObj.getString("Gender");
+                        String religion = jsonObj.getString("Religion");
+                        String community = jsonObj.getString("Community");
+                        String nationality = jsonObj.getString("Nationality");
+                        String caste = jsonObj.getString("Caste");
+                        String martial_status = jsonObj.getString("Martial_Status");
+                        String blood_group = jsonObj.getString("Blood_Group");
+                        String aadhar = jsonObj.getString("Aadhaar_No");
+                        String pan = jsonObj.getString("Pancard_No");
+                        String phoneno = jsonObj.getString("Phone_Number");
+                        String email = jsonObj.getString("Personal_Email");
+                        String address = jsonObj.getString("Current_Address");
+                        String country = jsonObj.getString("Country");
+                        String state = jsonObj.getString("State");
+                        String district = jsonObj.getString("District");
+                        String pincode = jsonObj.getString("Pin_code");
+                        e3.setText(firstname);
+                        e4.setText(middlename);
+                        e5.setText(surname);
+                        e6.setText(fathername);
+                        e7.setText(mothername);
+                        e8.setText(dob);
+                        e9.setText(gender);
+                        e10.setText(religion);
+                        e11.setText(community);
+                        e12.setText(nationality);
+                        e13.setText(caste);
+                        e14.setText(martial_status);
+                        e15.setText(blood_group);
+                        e16.setText(aadhar);
+                        e17.setText(pan);
+                        e18.setText(phoneno);
+                        e19.setText(email);
+                        e20.setText(address);
+                        e21.setText(country);
+                        e22.setText(state);
+                        e23.setText(district);
+                        e24.setText(pincode);
+
+                    }
+
 
             } catch (Exception e) {
                 e.printStackTrace();
                 Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
             }
-        }
+
 
             /*Intent i = new Intent(register.this, CombinedActivity.class);
             startActivity(i);*/
