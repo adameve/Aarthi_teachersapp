@@ -1,35 +1,55 @@
 package com.example.jerem.teachersassistant;
 
+import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.message.BasicNameValuePair;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.jerem.teachersassistant.R.id.e3;
+
 public class LogActivity extends AppCompatActivity {
 ArrayAdapter<String> a;
+    Spinner s1;
+    EditText e3;
+    HttpClient httpclient;
+    HttpPost httppost;
+    ResponseHandler<String> response;
+    List<NameValuePair> nameValuePairs;
+    String Notes,returnedstring,Selection;
+    CharSequence t1="invalid";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log);
         // Spinner element
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
 
+        e3 = (EditText) findViewById(R.id.e3);
+        s1 = (Spinner) findViewById(R.id.spinner);
         // Spinner click listener
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        s1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String item=parent.getItemAtPosition(position).toString();
-if(position==1)
-{
 
 
-}
             }
 
             @Override
@@ -57,7 +77,35 @@ if(position==1)
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         // attaching data adapter to spinner
-        spinner.setAdapter(dataAdapter);
+        s1.setAdapter(dataAdapter);
+    }
+    public void submit(View v){
+        Notes = e3.getText().toString();
+        Selection = s1.getSelectedItem().toString();
+        nameValuePairs.add(new BasicNameValuePair("Notes", Notes));
+        httppost = new HttpPost("http://10.0.2.2/log.php");
+        try {
+            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+            returnedstring = httpclient.execute(httppost, response);
+            System.out.println("res"+returnedstring);
+            Toast.makeText(getApplicationContext(), returnedstring, Toast.LENGTH_LONG).show();
+            if(returnedstring.equals("true"))
+            {
+                Intent s = new Intent(LogActivity.this, MainActivity.class);
+                startActivity(s);
+            }
+            else
+            {
+                Toast.makeText(getApplicationContext(), t1 , Toast.LENGTH_LONG).show();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+        }
     }
 
+            /*Intent i = new Intent(register.this, CombinedActivity.class);
+            startActivity(i);*/
 }
+
