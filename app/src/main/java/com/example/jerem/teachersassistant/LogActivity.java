@@ -1,6 +1,7 @@
 package com.example.jerem.teachersassistant;
 
 import android.content.Intent;
+import android.os.StrictMode;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +17,8 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.BasicResponseHandler;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
 import java.util.ArrayList;
@@ -31,7 +34,7 @@ ArrayAdapter<String> a;
     HttpPost httppost;
     ResponseHandler<String> response;
     List<NameValuePair> nameValuePairs;
-    String Notes,returnedstring,Selection;
+    String notes,returnedstring,Selection;
     CharSequence t1="invalid";
 
     @Override
@@ -39,6 +42,11 @@ ArrayAdapter<String> a;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log);
         // Spinner element
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                    .permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
 
 
         e3 = (EditText) findViewById(R.id.e3);
@@ -80,28 +88,35 @@ ArrayAdapter<String> a;
         s1.setAdapter(dataAdapter);
     }
     public void submit(View v){
-        Notes = e3.getText().toString();
+        notes = e3.getText().toString();
         Selection = s1.getSelectedItem().toString();
-        nameValuePairs.add(new BasicNameValuePair("Notes", Notes));
-        httppost = new HttpPost("http://10.0.2.2/log.php");
-        try {
-            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-            returnedstring = httpclient.execute(httppost, response);
-            System.out.println("res"+returnedstring);
-            Toast.makeText(getApplicationContext(), returnedstring, Toast.LENGTH_LONG).show();
-            if(returnedstring.equals("true"))
-            {
-                Intent s = new Intent(LogActivity.this, MainActivity.class);
-                startActivity(s);
-            }
-            else
-            {
-                Toast.makeText(getApplicationContext(), t1 , Toast.LENGTH_LONG).show();
-            }
+        if(s1.equals("")){
+            Toast.makeText(getApplicationContext(), "Please enter all the details", Toast.LENGTH_LONG).show();
+        }
+        else {
+            nameValuePairs = new ArrayList<NameValuePair>();
+            httpclient = new DefaultHttpClient();
+            response = new BasicResponseHandler();
+            nameValuePairs.add(new BasicNameValuePair("Notes", notes));
+            nameValuePairs.add(new BasicNameValuePair("Spinner", Selection));
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+            httppost = new HttpPost("http://10.0.2.2/log.php");
+            try {
+                httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+                returnedstring = httpclient.execute(httppost, response);
+                System.out.println("res" + returnedstring);
+
+                if (returnedstring.equals("true")) {
+                    Intent s = new Intent(LogActivity.this, MainActivity.class);
+                    startActivity(s);
+                } else {
+                    Toast.makeText(getApplicationContext(), t1, Toast.LENGTH_LONG).show();
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+            }
         }
     }
 

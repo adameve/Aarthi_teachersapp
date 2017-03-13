@@ -11,10 +11,7 @@
             android:id="@+id/nav_slideshow"
 
             android:title="Time Table" />
-        <item
-            android:id="@+id/nav_internal"
-
-            android:title="Internal Marks" />
+       
 
         <item
             android:id="@+id/nav_activity"

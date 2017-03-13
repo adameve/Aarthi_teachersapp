@@ -29,12 +29,14 @@
         android:inputType="textMultiLine"
         android:hint="Notes"
         android:ems="10"
-        android:id="@+id/editText" />
+        android:id="@+id/e3" />
 
     <Button
         android:text="Submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="submit"
+
         android:id="@+id/button" />
 
 </LinearLayout>

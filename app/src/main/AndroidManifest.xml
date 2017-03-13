@@ -44,10 +44,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".AttendActivity" />
         <activity
-            android:name=".InternalActivity"
-            android:label="@string/title_activity_internal"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".Marksentry"
             android:label="@string/title_activity_marksentry"
             android:theme="@style/AppTheme.NoActionBar"></activity>
