@@ -100,7 +100,7 @@ public class LoginActivity extends AppCompatActivity {
             nameValuePairs.add(new BasicNameValuePair("Password", password));
 
 
-            httppost = new HttpPost("http://10.0.2.2/check.php");
+            httppost = new HttpPost("http://10.0.2.2:8080/check.php");
             try {
                 httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
                 returnedstring = httpclient.execute(httppost, response);

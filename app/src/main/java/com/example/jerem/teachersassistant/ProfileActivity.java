@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -43,7 +44,7 @@ public class ProfileActivity extends AppCompatActivity {
     String Userid,First_Name,Middle_Name,Surname,Father_Name,Mother_Name,DOB,Gender,Religion,Community,Nationality,Caste,Martial_Status,Blood_Group,Aadhaar_No,Pancard_No,Phone_Number,Personal_Email,Current_Address,Country,State,District,Pin_code;
     String returnedstring;
   //  String studentStatus ="0";
-    CharSequence t1="invalid";
+    CharSequence t1="invalid",t2="Profile Updated";
     String userid;
     Button update;
 
@@ -156,7 +157,7 @@ update = (Button) findViewById(R.id.update);
 
             try {
                 nameValuePairs.add(new BasicNameValuePair("userid", userid));
-                httppost = new HttpPost("http://10.0.2.2/display.php");
+                httppost = new HttpPost("http://10.0.2.2:8080/display.php");
                 httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
                 returnedstring = httpclient.execute(httppost, response);
                 System.out.println("res"+returnedstring);
@@ -286,12 +287,14 @@ update = (Button) findViewById(R.id.update);
             nameValuePairs.add(new BasicNameValuePair("District", District));
             nameValuePairs.add(new BasicNameValuePair("Pin_code", Pin_code));
             nameValuePairs.add(new BasicNameValuePair("userid", userid));
-            httppost = new HttpPost("http://10.0.2.2/profile.php");
+            httppost = new HttpPost("http://10.0.2.2:8080/profile.php");
             httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
             returnedstring = httpclient.execute(httppost, response);
             System.out.println("res" + returnedstring);
 
-
+            Toast.makeText(getApplicationContext(), t2, Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(ProfileActivity.this , MainActivity.class);
+            startActivity(intent);
 
         }catch (Exception e) {
             e.printStackTrace();

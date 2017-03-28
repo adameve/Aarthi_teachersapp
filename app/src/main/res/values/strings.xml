@@ -14,6 +14,8 @@
         completions."
     </string>
     <string name="title_activity_main">Teacher\u0027s Assistant</string>
+    <string name="radiogroup">RadioGroup</string>
+
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -114,4 +116,5 @@
     <string name="title_activity_adminlogin">Adminlogin</string>
     <string name="validuser">Invalid UserId and Password</string>
     <string name="title_activity_marksentry">Marksentry</string>
+    <string name="title_activity_timetable">Timetable</string>
 </resources>

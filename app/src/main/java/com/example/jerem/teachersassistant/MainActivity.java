@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity
 
             try {
                 nameValuePairs.add(new BasicNameValuePair("userid", userid));
-                httppost = new HttpPost("http://10.0.2.2/display.php");
+                httppost = new HttpPost("http://10.0.2.2:8080/display.php");
                 httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
                 returnedstring = httpclient.execute(httppost, response);
                 System.out.println("res:-------"+returnedstring);
@@ -267,6 +267,9 @@ public class MainActivity extends AppCompatActivity
             startActivity(act);
 
         } else if (id == R.id.nav_slideshow) {
+
+             Intent act = new Intent(MainActivity.this,Timetable.class);
+             startActivity(act);
 
         } /*else if(id == R.id.nav_internal){
             Intent act = new Intent(MainActivity.this,InternalActivity.class);

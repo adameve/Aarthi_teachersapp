@@ -16,7 +16,10 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -31,7 +34,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="PERSONAL DETAILS:" />
+                        android:text="PERSONAL DETAILS:"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow>
@@ -39,7 +43,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="First Name:" />
+                        android:text="First Name:"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/e3"
@@ -53,7 +58,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="Middle Name:" />
+                        android:text="Middle Name:"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/e4"
@@ -69,7 +75,8 @@
                         android:id="@+id/textView2"
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="Surname:" />
+                        android:text="Surname:"
+                        android:textStyle="bold" />
 
                     <TextView
 
@@ -84,7 +91,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="Father Name:" />
+                        android:text="Father Name:"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/e6"
@@ -98,7 +106,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="Mother Name:" />
+                        android:text="Mother Name:"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/e7"
@@ -112,7 +121,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="DOB:" />
+                        android:text="DOB:"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/e8"
@@ -126,7 +136,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="Gender:" />
+                        android:text="Gender:"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/e9"
@@ -140,7 +151,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="Religion:" />
+                        android:text="Religion:"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/e10"
@@ -154,7 +166,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="Community:" />
+                        android:text="Community:"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/e11"
@@ -168,7 +181,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="Nationality:" />
+                        android:text="Nationality:"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/e12"
@@ -182,7 +196,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="Caste:" />
+                        android:text="Caste:"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/e13"
@@ -196,7 +211,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="Martial Status:" />
+                        android:text="Martial Status:"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/e14"
@@ -210,7 +226,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="Blood Group:" />
+                        android:text="Blood Group:"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/e15"
@@ -224,7 +241,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="Aadhaar No:" />
+                        android:text="Aadhaar No:"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/e16"
@@ -238,7 +256,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="Pan card No:" />
+                        android:text="Pan card No:"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/e17"
@@ -252,7 +271,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="Phone Number:" />
+                        android:text="Phone Number:"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/e18"
@@ -266,7 +286,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="Personal Email:" />
+                        android:text="Personal Email:"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/e19"
@@ -278,14 +299,16 @@
                 <TextView
                     android:layout_width="250dp"
                     android:layout_height="40dp"
-                    android:text="COMMUNICATION DETAILS:" />
+                    android:text="COMMUNICATION DETAILS:"
+                    android:textStyle="bold" />
 
                 <TableRow>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="Current Address:" />
+                        android:text="Current Address:"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/e20"
@@ -299,7 +322,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="Country:" />
+                        android:text="Country:"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/e21"
@@ -313,7 +337,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="State:" />
+                        android:text="State:"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/e22"
@@ -327,7 +352,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="District:" />
+                        android:text="District:"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/e23"
@@ -341,7 +367,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="PinCode:" />
+                        android:text="PinCode:"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/e24"

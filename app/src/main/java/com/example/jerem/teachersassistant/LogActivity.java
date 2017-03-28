@@ -100,18 +100,14 @@ ArrayAdapter<String> a;
             nameValuePairs.add(new BasicNameValuePair("Notes", notes));
             nameValuePairs.add(new BasicNameValuePair("Spinner", Selection));
 
-            httppost = new HttpPost("http://10.0.2.2/log.php");
+            httppost = new HttpPost("http://10.0.2.2:8080/log.php");
             try {
                 httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
                 returnedstring = httpclient.execute(httppost, response);
                 System.out.println("res" + returnedstring);
-
-                if (returnedstring.equals("true")) {
-                    Intent s = new Intent(LogActivity.this, MainActivity.class);
+                Toast.makeText(getApplicationContext(), "Notes submitted", Toast.LENGTH_LONG).show();
+                Intent s = new Intent(LogActivity.this, MainActivity.class);
                     startActivity(s);
-                } else {
-                    Toast.makeText(getApplicationContext(), t1, Toast.LENGTH_LONG).show();
-                }
 
             } catch (Exception e) {
                 e.printStackTrace();

@@ -21,7 +21,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/log_description_height"
-        android:text="Description:" />
+        android:text="Description:"
+        android:textStyle="bold" />
 
     <EditText
         android:layout_width="match_parent"
@@ -32,11 +33,12 @@
         android:id="@+id/e3" />
 
     <Button
-        android:text="Submit"
+        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="submit"
 
-        android:id="@+id/button" />
+        android:text="Submit"
+        android:textStyle="bold" />
 
 </LinearLayout>

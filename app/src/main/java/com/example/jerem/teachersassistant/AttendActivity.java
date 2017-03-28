@@ -35,7 +35,7 @@ public class AttendActivity extends AppCompatActivity {
         mArrayList.add("AncyMeja");
         mArrayList.add("Prasad thangavel");
         mAdapter    = new AttendanceAdapter(this,mArrayList);
-        mRecycleView.setLayoutManager(new GridLayoutManager(this,3));
+        mRecycleView.setLayoutManager(new LinearLayoutManager(this));
         mRecycleView.setAdapter(mAdapter);
     }
     public void stu (View v){
