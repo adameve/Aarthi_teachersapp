@@ -10,7 +10,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,71 +29,74 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 public class Timetable extends AppCompatActivity {
 
-    TextView t16,t17,t18,t19,t20,t21,t22,t24,t25,t26,t27,t28,t29,t30,t31,t33,t34,t35,t36,t37,t38,t39,t40,t42,t43,t44,t45,t46,t47,t48,t49,t51,t52,t53,t54,t55,t56,t57,t58,t68,t69,t70,t71,t72,t73,t74,t75,t76,t23;
- String m1,m2,m3,m4,m5,m6,m7,m8,t1,t2,t3,t4,t5,t6,t7,t8,w1,w2,w3,w4,w5,w6,w7,w8,th1,th2,th3,th4,th5,th6,th7,th8,f1,f2,f3,f4,f5,f6,f7,f8,s1,s2,s3,s4,s5,s6,s7,s8;
+    TextView  t17, t18, t19, t20, t21, t22,t23, t24, t25, t26, t27, t28, t29, t30, t31,t32, t33, t34, t35, t36, t37, t38, t39, t40, t41,t42, t43, t44, t45, t46, t47, t48, t49,t50, t51, t52, t53, t54, t55, t56, t57, t58,t59,t60, t61, t62, t63, t64, t65, t66, t67, t68, t69,t70,t71,t72,t73,t74,t75,t76,t77,t78,t79,t80,t81,t82,t83;
+    String dys,dept,yr,aa,aa1,ab,ab1,ac,ac1,ad,ad1,ae,ae1,af,af1,ag,ag1,ba,ba1;
+    // String m1,m2,m3,m4,m5,m6,m7,m8,t1,t2,t3,t4,t5,t6,t7,t8,w1,w2,w3,w4,w5,w6,w7,w8,th1,th2,th3,th4,th5,th6,th7,th8,f1,f2,f3,f4,f5,f6,f7,f8,s1,s2,s3,s4,s5,s6,s7,s8;
     HttpClient httpclient;
     HttpPost httppost;
     ResponseHandler<String> response;
     List<NameValuePair> nameValuePairs;
     String returnedstring;
 
+    ArrayList<HashMap<String,String>> exampleArray = null;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timetable);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                     .permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        Spinner spinner = (Spinner) findViewById(R.id.travelType_spinner);
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.timetable, R.layout.activity_timetable);
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        if (spinner != null) {
-            spinner.setAdapter(adapter);
-        }
 
-        t16 = (TextView) findViewById(R.id.t16);
+
+
+/*
         t17 = (TextView) findViewById(R.id.t17);
         t18 = (TextView) findViewById(R.id.t18);
         t19 = (TextView) findViewById(R.id.t19);
         t20 = (TextView) findViewById(R.id.t20);
         t21 = (TextView) findViewById(R.id.t21);
-        t22 = (TextView) findViewById(R.id.t22);
+        t22 = (TextView) findViewById(R.id.t23);
+        t23 = (TextView) findViewById(R.id.t23);
         t24 = (TextView) findViewById(R.id.t24);
         t25 = (TextView) findViewById(R.id.t25);
-        t26 = (TextView) findViewById(R.id.t27);
+        t26 = (TextView) findViewById(R.id.t26);
+        t27 = (TextView) findViewById(R.id.t27);
         t28 = (TextView) findViewById(R.id.t28);
         t29 = (TextView) findViewById(R.id.t29);
-        t30= (TextView) findViewById(R.id.t30);
+        t30 = (TextView) findViewById(R.id.t30);
         t31 = (TextView) findViewById(R.id.t31);
+        t32 = (TextView) findViewById(R.id.t32);
         t33 = (TextView) findViewById(R.id.t33);
-        t34= (TextView) findViewById(R.id.t34);
+        t34 = (TextView) findViewById(R.id.t34);
         t35 = (TextView) findViewById(R.id.t35);
-        t36= (TextView) findViewById(R.id.t36);
+        t36 = (TextView) findViewById(R.id.t36);
         t37 = (TextView) findViewById(R.id.t37);
         t38 = (TextView) findViewById(R.id.t38);
         t39 = (TextView) findViewById(R.id.t39);
         t40 = (TextView) findViewById(R.id.t40);
+        t41 = (TextView) findViewById(R.id.t41);
         t42 = (TextView) findViewById(R.id.t42);
         t43 = (TextView) findViewById(R.id.t43);
         t44 = (TextView) findViewById(R.id.t44);
-        t45= (TextView) findViewById(R.id.t45);
+        t45 = (TextView) findViewById(R.id.t45);
         t46 = (TextView) findViewById(R.id.t46);
         t47 = (TextView) findViewById(R.id.t47);
         t48 = (TextView) findViewById(R.id.t48);
         t49 = (TextView) findViewById(R.id.t49);
+        t50 = (TextView) findViewById(R.id.t50);
         t51 = (TextView) findViewById(R.id.t51);
         t52 = (TextView) findViewById(R.id.t52);
         t53 = (TextView) findViewById(R.id.t53);
@@ -99,221 +105,172 @@ public class Timetable extends AppCompatActivity {
         t56 = (TextView) findViewById(R.id.t56);
         t57 = (TextView) findViewById(R.id.t57);
         t58 = (TextView) findViewById(R.id.t58);
-        t68= (TextView) findViewById(R.id.t68);
+        t59 = (TextView) findViewById(R.id.t59);
+        t60 = (TextView) findViewById(R.id.t60);
+        t61 = (TextView) findViewById(R.id.t61);
+        t62 = (TextView) findViewById(R.id.t62);
+        t63 = (TextView) findViewById(R.id.t63);
+        t64 = (TextView) findViewById(R.id.t64);
+        t65 = (TextView) findViewById(R.id.t65);
+        t66 = (TextView) findViewById(R.id.t66);
+        t67 = (TextView) findViewById(R.id.t67);
+        t68 = (TextView) findViewById(R.id.t68);
         t69 = (TextView) findViewById(R.id.t69);
         t70 = (TextView) findViewById(R.id.t70);
         t71 = (TextView) findViewById(R.id.t71);
         t72 = (TextView) findViewById(R.id.t72);
-        t73= (TextView) findViewById(R.id.t73);
+        t73 = (TextView) findViewById(R.id.t73);
         t74 = (TextView) findViewById(R.id.t74);
         t75 = (TextView) findViewById(R.id.t75);
         t76 = (TextView) findViewById(R.id.t76);
-        t23 = (TextView) findViewById(R.id.t23);
+        t77 = (TextView) findViewById(R.id.t77);
+        t78 = (TextView) findViewById(R.id.t78);
+        t79 = (TextView) findViewById(R.id.t79);
+        t80 = (TextView) findViewById(R.id.t80);
+        t81 = (TextView) findViewById(R.id.t81);
+        t82 = (TextView) findViewById(R.id.t82);
+        t83 = (TextView) findViewById(R.id.t83);*/
+
         nameValuePairs = new ArrayList<NameValuePair>();
         httpclient = new DefaultHttpClient();
         response = new BasicResponseHandler();
-        displaydata();
-
-
-
+        displayData();
 
     }
-    public void displaydata(){
 
-
-        m1= t16.getText().toString();
-    m2=t17.getText().toString();
-    m3 = t18.getText().toString();
-    m4 = t19.getText().toString();
-    m5= t20.getText().toString();
-        m6= t21.getText().toString();
-        m7=t23.getText().toString();
-        m8 = t22.getText().toString();
-        t1 = t24.getText().toString();
-        t2= t25.getText().toString();
-        t3 = t26.getText().toString();
-        t4= t27.getText().toString();
-        t5 = t28.getText().toString();
-        t6= t29.getText().toString();
-        t7 = t30.getText().toString();
-        t8= t31.getText().toString();
-        w1 = t33.getText().toString();
-        w2= t34.getText().toString();
-        w3 = t35.getText().toString();
-        w4= t36.getText().toString();
-        w5 = t37.getText().toString();
-        w6= t38.getText().toString();
-        w7 = t39.getText().toString();
-        w8= t40.getText().toString();
-        th1 = t42.getText().toString();
-        th2= t43.getText().toString();
-        th3 = t44.getText().toString();
-        th4= t45.getText().toString();
-        th5 = t46.getText().toString();
-        th6= t47.getText().toString();
-        th7 = t48.getText().toString();
-        th8= t49.getText().toString();
-        f1 = t51.getText().toString();
-        f2= t52.getText().toString();
-        f3 = t53.getText().toString();
-        f4= t54.getText().toString();
-        f5 = t55.getText().toString();
-        f6= t56.getText().toString();
-        f7 = t57.getText().toString();
-        f8= t58.getText().toString();
-        s1 = t69.getText().toString();
-        s2= t70.getText().toString();
-        s3 = t71.getText().toString();
-        s4= t72.getText().toString();
-        s5 = t73.getText().toString();
-        s6= t74.getText().toString();
-        s7 = t75.getText().toString();
-        s8= t76.getText().toString();
-
-
+    public void displayData() {
 
         try {
 
-        httppost = new HttpPost("http://10.0.2.2:8080/Timetable.php");
-        httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-        returnedstring = httpclient.execute(httppost, response);
-        System.out.println("res"+returnedstring);
+            httppost = new HttpPost("http://10.0.2.2:8080/Timetable.php");
+            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+            returnedstring = httpclient.execute(httppost, response);
+            System.out.println("res ----" + returnedstring);
 
-        JSONArray jsonArr = new JSONArray(returnedstring);
+            JSONArray jsonArr = new JSONArray(returnedstring);
 
-        for(int i=0;i<jsonArr.length();i++)
-        {
-            JSONObject jsonObj = jsonArr.getJSONObject(i);
-            String m1  = jsonObj.getString("m1");
-            String m2 = jsonObj.getString("m2");
-            String m3 = jsonObj.getString("m3");
-            String m4 = jsonObj.getString("m4");
-            String m5 = jsonObj.getString("m5");
-            String m6 = jsonObj.getString("m6");
-            String m7 = jsonObj.getString("m7");
-            String m8 = jsonObj.getString("m8");
-            String t1 = jsonObj.getString("t1");
-            String t2= jsonObj.getString("t2");
-            String t3 = jsonObj.getString("t3");
-            String t4 = jsonObj.getString("t4");
-            String t5 = jsonObj.getString("t5");
-            String t6 = jsonObj.getString("t6");
-            String t7 = jsonObj.getString("t7");
-            String t8= jsonObj.getString("t8");
-            String w1 = jsonObj.getString("w1");
-            String w2 = jsonObj.getString("w2");
-            String w3 = jsonObj.getString("w3");
-            String w4 = jsonObj.getString("w4");
-            String w5 = jsonObj.getString("w5");
-            String w6 = jsonObj.getString("w6");
-            String w7 = jsonObj.getString("w7");
-            String w8 = jsonObj.getString("w8");
-            String th1 = jsonObj.getString("th1");
-            String th2= jsonObj.getString("th2");
-            String th3 = jsonObj.getString("th3");
-            String th4 = jsonObj.getString("th4");
-            String th5 = jsonObj.getString("th5");
-            String th6 = jsonObj.getString("th6");
-            String th7 = jsonObj.getString("th7");
-            String th8= jsonObj.getString("th8");
-            String f1 = jsonObj.getString("f1");
-            String f2= jsonObj.getString("f2");
-            String f3 = jsonObj.getString("f3");
-            String f4 = jsonObj.getString("f4");
-            String f5 = jsonObj.getString("f5");
-            String f6 = jsonObj.getString("f6");
-            String f7 = jsonObj.getString("f7");
-            String f8= jsonObj.getString("f8");
-            String s1 = jsonObj.getString("s1");
-            String s2= jsonObj.getString("s2");
-            String s3 = jsonObj.getString("s3");
-            String s4 = jsonObj.getString("s4");
-            String s5 = jsonObj.getString("s5");
-            String s6 = jsonObj.getString("s6");
-            String s7 = jsonObj.getString("s7");
-            String s8= jsonObj.getString("s8");
-            t16.setText(m1);
-            t17.setText(m2);
-            t18.setText(m3);
-            t19.setText(m4);
-            t20.setText(m5);
-            t21.setText(m6);
-            t22.setText(m8);
-            t23.setText(m7);
-            t24.setText(t1);
-            t25.setText(t2);
-            t26.setText(t3);
-            t27.setText(t4);
-            t28.setText(t5);
-            t29.setText(t6);
-            t30.setText(t7);
-            t31.setText(t8);
-            t33.setText(w1);
-            t34.setText(w2);
-            t35.setText(w3);
-            t36.setText(w4);
-            t37.setText(w5);
-            t38.setText(w6);
-            t39.setText(w7);
-            t40.setText(w8);
-            t42.setText(th1);
-            t43.setText(th2);
-            t44.setText(th3);
-            t45.setText(th4);
-            t46.setText(th5);
-            t47.setText(th6);
-            t48.setText(th7);
-            t49.setText(th8);
-            t51.setText(f1);
-            t52.setText(f2);
-            t53.setText(f3);
-            t54.setText(f4);
-            t55.setText(f5);
-            t56.setText(f6);
-            t57.setText(f7);
-            t58.setText(f8);
-            t69.setText(s1);
-            t70.setText(s2);
-            t71.setText(s3);
-            t72.setText(s4);
-            t73.setText(s5);
-            t74.setText(s6);
-            t75.setText(s7);
-            t76.setText(s8);
+            for (int i = 0; i < jsonArr.length(); i++) {
+                TableLayout tl = (TableLayout)findViewById(R.id.tablelayout);
+                JSONObject timetable = jsonArr.getJSONObject(i);
+                TableRow row = new TableRow(this);
+                TextView tv1 = new TextView(this);
+                TextView tv2 = new TextView(this);
+                TextView tv3 = new TextView(this);
+                TextView tv4 = new TextView(this);
+                TextView tv5 = new TextView(this);
+                TextView tv6 = new TextView(this);
+                TextView tv7 = new TextView(this);
+                TextView tv8 = new TextView(this);
+                TextView tv9 = new TextView(this);
+                TextView tv10 = new TextView(this);
+                TextView tv11 = new TextView(this);
 
 
 
+                dys = timetable.getString("dys");
+                    dept = timetable.getString("dept");
+                    yr = timetable.getString("yr");
+                    aa = timetable.getString("aa");
+                    aa1 = timetable.getString("aa1");
+                    ab = timetable.getString("ab");
+                    ab1 = timetable.getString("ab1");
+                    ac = timetable.getString("ac");
+                    ac1 = timetable.getString("ac1");
+                    ad = timetable.getString("ad");
+                    ad1 = timetable.getString("ad1");
+                    ae = timetable.getString("ae");
+                    ae1 = timetable.getString("ae1");
+                    af = timetable.getString("af");
+                    af1 = timetable.getString("af1");
+                    ag = timetable.getString("ag");
+                    ag1 = timetable.getString("ag1");
+                    ba = timetable.getString("ba");
+                    ba1 = timetable.getString("ba1");
+
+                tv1.setText(dys +"  ");
+                tv2.setText(dept +"  ");
+                tv3.setText(yr +"  ");
+                tv4.setText(aa +"-"+ aa1+"  ");
+                tv5.setText(ab +"-"+ ab1+"  ");
+                tv6.setText(ac +"-" +ac1+"  ");
+                tv7.setText(ad +"-"+ ad1+"  ");
+                tv8.setText(ae +"-"+ ae1+"  ");
+                tv9.setText(af +"-"+ af1+"  ");
+                tv10.setText(ag +"-" +ag1+"  ");
+                tv11.setText(ba +"-"+ ba1+"  ");
+
+                tl.addView(row);
+                row.addView(tv1);
+                row.addView(tv2);
+                row.addView(tv3);
+                row.addView(tv4);
+                row.addView(tv5);
+                row.addView(tv6);
+                row.addView(tv7);
+                row.addView(tv8);
+                row.addView(tv9);
+                row.addView(tv10);
+                row.addView(tv11);
+                //set the layout of the view
+                //setContentView(R.layout.activity_timetable);
+
+//
+//                    HashMap<String, String> map = new HashMap<>();
+//                    map.put("dys", dys);
+//                    map.put("dept", dept);
+//                    map.put("yr", yr);
+//                    map.put("aa", aa);
+//                    map.put("aa1", aa1);
+//                    map.put("ab", ab);
+//                    map.put("ab", ab1);
+//                    map.put("ac", ac);
+//                    map.put("ac1", ac1);
+//                    map.put("ad", ad);
+//                    map.put("ad1", ad1);
+//                    map.put("ae", ae);
+//                    map.put("ae1", ae1);
+//                    map.put("af", af);
+//                    map.put("ae", ae);
+//                    map.put("ae1", ae1);
+//                    map.put("ag", ag);
+//                    map.put("ag1", ag1);
+//                    map.put("ba", ba);
+//                    map.put("ba1", ba1);
+//
+//                    exampleArray = new ArrayList<>();
+//                    exampleArray.add(map);
+
+//                    t17.setText(dys);
+//                    t18.setText(dept);
+//                    t19.setText(yr);
+//                    t20.setText(aa + aa1);
+//                    t21.setText(ab + ab1);
+//                    t23.setText(ac + ac1);
+//                    t24.setText(ad + ad1);
+//                    t25.setText(ae + ae1);
+//                    t26.setText(af + af1);
+//                    t27.setText(ag + ag1);
+//                    t28.setText(ba + ba1);
+                    /*t29.setText(dys);
+                    t30.setText(dept);
+                    t31.setText(yr);
+                    t32.setText(aa + aa1);
+                    t33.setText(ab + ab1);
+                    t34.setText(ac + ac1);
+                    t35.setText(ad + ad1);
+                    t36.setText(ae + ae1);
+                    t37.setText(af + af1);
+                    t38.setText(ag + ag1);
+                    t39.setText(ba + ba1);
+*/
+            }
 
 
-
-
-
-
-
-
-
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
         }
-
-
-                /*Toast.makeText(getApplicationContext(), returnedstring, Toast.LENGTH_LONG).show();
-                if(returnedstring.equals("true"))
-                {
-                    Intent s = new Intent(ProfileActivity.this, MainActivity.class);
-                    startActivity(s);
-                }
-                else
-                {
-                    Toast.makeText(getApplicationContext(), t1 , Toast.LENGTH_LONG).show();
-                }*/
-
-    } catch (Exception e) {
-        e.printStackTrace();
-        Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
-    }
     }
 
-
-            /*Intent i = new Intent(register.this, CombinedActivity.class);
-            startActivity(i);*/
 }
 
