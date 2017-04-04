@@ -16,87 +16,17 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:id="@+id/linearLayout2"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="1">
-
-            <TextView
-                android:text="Total:"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/linearLayout"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginLeft="40dp"
-                android:layout_marginStart="05dp"
-                android:id="@+id/textView16"
-                android:textStyle="normal|bold" />
-
-            <TextView
-                android:layout_width="45dp"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:layout_marginLeft="1dp"
-                android:ems="10"
-                android:id="@+id/Textview5"
-                android:textStyle="normal|bold" />
-
-            <TextView
-                android:text="Present:"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/linearLayout"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginLeft="40dp"
-                android:layout_marginStart="05dp"
-                android:id="@+id/textView17"
-                android:textStyle="normal|bold" />
-            <TextView
-                android:layout_width="55dp"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:layout_marginLeft="1dp"
-                android:ems="10"
-                android:id="@+id/Textview6"
-                android:textStyle="normal|bold"
-                android:layout_weight="0.94" />
-            <TextView
-                android:text="Absent:"
-                android:layout_width="53dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/linearLayout"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginLeft="40dp"
-                android:layout_marginStart="05dp"
-                android:id="@+id/textView18"
-                android:textStyle="normal|bold" />
-            <TextView
-                android:layout_width="55dp"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:layout_marginLeft="1dp"
-                android:ems="10"
-                android:id="@+id/Textview7"
-                android:textStyle="normal|bold" />
-        </LinearLayout>
         <TextView
             android:text="*Select image to mark absent*"
             android:layout_width="wrap_content"
